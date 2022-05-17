@@ -1,0 +1,19 @@
+﻿.offcanvas-color {
+background: #607B7D;
+}
+.li {
+    list-style: none;
+    font-size: 12px; 
+    font-style: normal;
+}
+.ul {
+    list-style: none;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.fa {
+    position: absolute;
+    padding: 11px;
+    right: 1px;
+}

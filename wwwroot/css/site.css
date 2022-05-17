@@ -1,0 +1,46 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-family: karla;
+        font-size: 16px;
+    }
+}
+
+color {
+    background-color: #607B7D
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #3A606E;
+    margin-bottom: 60px;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.br {
+    color: black;
+    background-color: black;
+}
+
+a, span {
+    color: black;
+}
+
+.card-personalizada {
+    width: 300px;
+    height: 600px;
+}
