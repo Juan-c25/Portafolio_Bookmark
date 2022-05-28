@@ -25,8 +25,15 @@ namespace Portafolio_Bookmark.Controllers
         public IActionResult MisLibros()
         {
             return View();
+        } 
+        public IActionResult Busqueda()
+        {
+            return View();
         }
-
+        public IActionResult Principal()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
