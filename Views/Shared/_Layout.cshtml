@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="~/portafolio_Bookmark.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css//sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css//sidebar.css" asp-append-version="true" /> 
+   
 </head>
 <body>
     <header>
@@ -28,18 +29,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="MisLibros">Mis libros</a>
                         </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="buscar" />
-                        <a class="link-secondary" href="#" aria-label="Search">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
-                        </a>
-                    </form>
+
+                    </ul> 
+                    <!--Texbox y boton de busqueda-->
+
+                        <input class="form-control me-2" type="text" id="search-box" placeholder="Titulo o Autor..." />
+                        <button id="search" class="btn btn-primary" onclick=""> 
+                            <i class="fas fa-search"></i>
+                        </button>
+
                     <partial name="_LoginPartial" />
                     <!--Boton para abir sidebar-->
                     <button class="btn navbar-dark " id="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#MenuNavegacion">
                         <span id="hamburger" class="navbar-toggler-icon"></span>
-                    </button>
+                    </button> 
+
                 </div>
             </div>
 
@@ -79,28 +83,30 @@
                         </li>
                     </ul>
                 </div>
-                <div class="modal-footer justify-content-start border-0 p-3"> 
+                <div class="modal-footer justify-content-start border-0 p-3">
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item ">
                             <a href="#" class="nav-link fa-solid fa-arrow-right-from-bracket">
-                              Logout 
+                                Logout
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
         </div>
+         
 
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+    </div> 
+    <script src="~/js/busqueda.js" asp-append-version="true"> </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/index.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
