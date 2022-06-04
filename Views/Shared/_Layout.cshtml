@@ -28,12 +28,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="MisLibros">Mis libros</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Busqueda">Busqueda</a>
                         </li>
 
                     </ul> 
                     <!--Texbox y boton de busqueda-->
 
-                        <input class="form-control me-2" type="text" id="search-box" placeholder="Titulo o Autor..." />
+                        <input class="form-control me-2  texbox" type="text" id="search-box" placeholder="Titulo o Autor..." />
                         <button id="search" class="btn btn-primary" onclick=""> 
                             <i class="fas fa-search"></i>
                         </button>

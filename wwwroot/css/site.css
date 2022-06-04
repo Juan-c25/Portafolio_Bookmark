@@ -28,7 +28,7 @@ h1 {
 }
 
 p {
-    color: white;
+    color: black;
 }
 
 .br {
@@ -46,4 +46,7 @@ a, span {
 }
 .hr{ 
     border-color: white;
+}
+.texbox{ 
+    width: 200px;
 }
