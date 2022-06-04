@@ -4,7 +4,7 @@ $(document).ready(function () {
     var outputList = document.getElementById("list-output");
     var bookUrl = "https://www.googleapis.com/books/v1/volumes?q=";
     var apiKey = "Key=AIzaSyDcoLxcFGM6uiIgYdYe_HqO7EblZ2gkcI4";
-    var placeHldr = '<img src="https://via.placeholder.com/150">';
+    var placeHldr = 'https://ctuid.com/img/not-found.png';
     var searchData;
 
 
@@ -45,29 +45,24 @@ $(document).ready(function () {
   * @param response
   */
     function displayResults(response) {
-        for (var i = 0; i < response.items.length; i += 1) {
-            try {
-                item = response.items[i];
-                title1 = item.volumeInfo.title;
-                author1 = item.volumeInfo.authors;
-                publisher1 = item.volumeInfo.publisher;
-                bookLink1 = item.volumeInfo.previewLink;
-                bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier
-                bookImg1 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : placeHldr;
-                console.log('img' + i + ': ' + bookImg1)
-                if (bookImg1 == '<img src="https://via.placeholder.com/150">') {
-                    bookImg1 = "https://ctuid.com/img/not-found.png";
-                    console.log('corregido:' + bookImg1)
-                }
-                // in production code, item.text should have the HTML entities escaped.
-                outputList.innerHTML += '<div class="row mt-4">' +
-                    formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn) +
-                    '</div>';
-            } catch (e) {
-                console.log('Error indice: ' + i)
-            }
-            console.log(outputList);
-        }
+      for (var i = 0; i < response.items.length; i+=1) {
+	try{
+        item = response.items[i];
+        title1 = item.volumeInfo.title;
+        author1 = item.volumeInfo.authors;
+        publisher1 = item.volumeInfo.publisher;
+        bookLink1 = item.volumeInfo.previewLink;
+        bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier
+        bookImg1 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : placeHldr; // mostrara placeHldr si no hay img 
+        // in production code, item.text should have the HTML entities escaped.
+        outputList.innerHTML += '<div class="row mt-4">' +
+                                formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn) +
+                                '</div>';
+	}catch(e){
+	    console.log('Error indice: '+i)
+	}
+        console.log(outputList);
+      }
 
     }
 
