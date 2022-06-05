@@ -44,9 +44,23 @@ a, span {
     width: 300px;
     height: 600px;
 }
-.hr{ 
-    border-color: white;
+hr{ 
+    color: white;
 }
 .texbox{ 
-    width: 200px;
+    width: 400px;
+}
+.colortext{ 
+    color: white;
+}
+.colorbtn {
+    background-color: #607B7D; 
+    border-color: white; 
+
+} 
+.abs-center {
+
+  align-items: center;
+  justify-content: center;
+
 }
