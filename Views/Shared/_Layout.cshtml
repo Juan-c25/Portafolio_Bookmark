@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Portafolio_Bookmark.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,8 +15,8 @@
     <link rel="stylesheet" href="~/portafolio_Bookmark.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css//sidebar.css" asp-append-version="true" /> 
-   
+    <link rel="stylesheet" href="~/css//sidebar.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
@@ -28,17 +32,17 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="MisLibros">Mis libros</a>
-                        </li> 
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Busqueda">Busqueda</a>
                         </li>
 
-                    </ul> 
+                    </ul>
                     <partial name="_LoginPartial" />
                     <!--Boton para abir sidebar-->
                     <button class="btn navbar-dark " id="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#MenuNavegacion">
                         <span id="hamburger" class="navbar-toggler-icon"></span>
-                    </button> 
+                    </button>
 
                 </div>
             </div>
@@ -55,50 +59,58 @@
                 <div class="row">
                     <div class="list-group">
                         <div class="modal-header justify-content-center border-0 p-4">
-                            <figure class="d-inline-flex flex-column align-items-center m-0">
-                                <img class="rounded-circle float-top " src="https://es.gravatar.com/userimage/3890878/26e5ee1b5d2703e9580d47bab83c0723.png?size=200" width="150">
-                                <figcaption class="mt-2">Usuario</figcaption>
-                                <figcaption class="mt-2">CorreoU@correo.correo </figcaption>
-                            </figure>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <ul>
+                                    <li class="nav-item">
+                                        <a id="manage" class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                                    </li>
+                                   <li>   
+                                    <div class="modal-body text-uppercase px-0 py-4 flex-1">
+                                        <ul class="nav nav-pills flex-column mb-auto">
+                                            <li class="nav-item ">
+                                                <a href="#" class="nav-link fa-solid fa-book-bookmark">
+
+                                                    Desafio de Lectura
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link fa-solid fa-gear ">
+                                                    Configuracion
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Principal", "Home", new { area = "" })">
+                                            <button id="logout" type="submit" class="nav-link btn btn-link text-light">Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            }
                         </div>
                     </div>
                 </div>
                 <br />
-                <div class="modal-body text-uppercase px-0 py-4 flex-1">
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link fa-solid fa-book-bookmark">
-
-                                Desafio de Lectura
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link fa-solid fa-gear ">
-                                Configuracion
-                            </a>
-                        </li>
-                    </ul>
-                </div>
                 <div class="modal-footer justify-content-start border-0 p-3">
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item ">
-                            <a href="#" class="nav-link fa-solid fa-arrow-right-from-bracket">
-                                Logout
-                            </a>
+
                         </li>
 
                     </ul>
                 </div>
             </div>
         </div>
-         
+
 
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div> 
+    </div>
     <script src="~/js/busqueda.js" asp-append-version="true"> </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

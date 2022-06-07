@@ -121,7 +121,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account
                 user.Nombre = Input.Nombre;
 
                 await _userStore.SetUserNameAsync(user, Input.Nombre, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Nombre, CancellationToken.None);
+                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
