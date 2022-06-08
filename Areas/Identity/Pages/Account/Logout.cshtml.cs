@@ -27,7 +27,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
+            _logger.LogInformation("Cueta cerrada.");
             if (returnUrl != null)
             {
                 return LocalRedirect(returnUrl);
