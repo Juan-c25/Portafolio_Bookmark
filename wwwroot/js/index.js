@@ -25,7 +25,7 @@ $(document).ready(function () {
                 success: function (response) {
                     console.log(response)
                     if (response.totalItems === 0) {
-                        alert("no result!.. try again")
+                        alert("Sin resultado!.. Intente de nuevo")
                     }
                     else {
                         $("#title").animate({ 'margin-top': '5px' }, 1000); //search box animation
@@ -34,7 +34,7 @@ $(document).ready(function () {
                     }
                 },
                 error: function () {
-                    alert("Something went wrong.. <br>" + "Try again!");
+                    alert("Algo salio masl.. <br>" + " Intentelo denuevo!");
                 }
             });
         }
@@ -104,6 +104,6 @@ $(document).ready(function () {
 
     //handling error for empty search box
     function displayError() {
-        alert("search term can not be empty!")
+        alert("El campo no puede estar vacio!")
     }
 });
