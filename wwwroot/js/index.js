@@ -13,8 +13,11 @@ $(document).ready(function () {
         outputList.innerHTML = "";
         document.body.style.backgroundImage = "url('')";
         searchData = $("#search-box").val();
+        console.log("busqueda: "+searchData);
         if (searchData === "" || searchData === null) {
-            displayError();
+          //  displayError();
+            //causa del error es que se repite
+            console.log('Error de busqueda');
         }
         else {
             // console.log(searchData);
@@ -98,7 +101,7 @@ $(document).ready(function () {
                     </select>
                 </p>
                 <p>
-                    <button class="btn btn-success" style="float:right" onclick="javascript:fncGuardar('${title}', '${author}', '${publisher}', '${cate}', this)">Guardar</button>
+                    <button class="btn btn-success" style="float:right" onclick="javascript:fncGuardar('${title}', '${author}', '${publisher}', '${cate}', this,'${bookImg}')">Guardar</button>
                 </p>
              </div>
            </div>
@@ -115,13 +118,13 @@ function displayError() {
     alert("El campo no puede estar vacio!")
 }
 
-function fncGuardar(titulo, autor, publisher, categoria, boton) {
+function fncGuardar(titulo, autor, publisher, categoria, boton, portada) {
 
     if ($(boton).parent().parent().find('select').val() == '0') {
         alert('Se debe seleccionar un estado del libro');
         return;
     }
-    var data = { Title: titulo, Author: autor, Publisher: publisher, Cate: categoria, Estado: $(boton).parent().find('select').val() }
+    var data = { Title: titulo, Author: autor, Publisher: publisher, Cate: categoria, Estado: $(boton).parent().find('select').val() ,Portada: portada }
 
     $.ajax({
         url: '/Home/GuardarLibro',
