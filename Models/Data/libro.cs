@@ -1,14 +1,12 @@
-public class Libro
+﻿namespace Portafolio_Bookmark.Models.Data
 {
-    public int IdLibro { get; set; } 
-    public string titulo { get; set; }
-
-    public string autor { get; set; }
-
-    public string coleccion { get; set; }
-
-    public string descripcion { get; set; }
-    public string Editorial { get; set; } 
-   
-
+    public class Libro
+    {
+        public string? Title { get; set; }
+        public string? Author { get; set; }
+        public string? Publisher { get; set; }
+        public string? Cate { get; set; }
+        public int Estado { get; set; }
+        
+    }
 }

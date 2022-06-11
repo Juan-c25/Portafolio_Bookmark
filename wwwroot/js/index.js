@@ -89,22 +89,50 @@ $(document).ready(function () {
                <p class="card-text">Autor: ${author}</p>
                <p class="card-text">Editorial: ${publisher}</p>
                 <p class="card-text">Categoria: ${cate} </p>
+                <p>
+                    <select class="form-select" aria-label="Default select example">
+                      <option value="0" selected>Selecionar...</option>
+                      <option value="1">Quiero Leer</option>
+                      <option value="2">Leyendo</option>
+                      <option value="3">Leido</option>
+                    </select>
+                </p>
+                <p>
+                    <button class="btn btn-success" style="float:right" onclick="javascript:fncGuardar('${title}', '${author}', '${publisher}', '${cate}', this)">Guardar</button>
+                </p>
              </div>
-<select class="form-select" aria-label="Default select example">
-  <option selected>Selecionar...</option>
-  <option value="1">Quiero Leer</option>
-  <option value="2">Leyendo</option>
-  <option value="3">Leido</option>
-</select>
            </div>
          </div>
        </div>
      </div>`
         return htmlCard;
     }
-
-    //handling error for empty search box
-    function displayError() {
-        alert("El campo no puede estar vacio!")
-    }
 });
+
+
+//handling error for empty search box
+function displayError() {
+    alert("El campo no puede estar vacio!")
+}
+
+function fncGuardar(titulo, autor, publisher, categoria, boton) {
+
+    if ($(boton).parent().parent().find('select').val() == '0') {
+        alert('Se debe seleccionar un estado del libro');
+        return;
+    }
+    var data = { Title: titulo, Author: autor, Publisher: publisher, Cate: categoria, Estado: $(boton).parent().find('select').val() }
+
+    $.ajax({
+        url: '/Home/GuardarLibro',
+        data: data,
+        method: 'POST',
+        success: function (resp) {
+
+        },
+        success: function (a, b, c) {
+
+        },
+    });
+
+}

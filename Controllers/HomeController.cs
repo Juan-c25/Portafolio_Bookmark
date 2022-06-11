@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Portafolio_Bookmark.Models;
+using Portafolio_Bookmark.Models.Data;
 using System.Diagnostics;
 
 namespace Portafolio_Bookmark.Controllers
@@ -38,6 +39,13 @@ namespace Portafolio_Bookmark.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult GuardarLibro(Libro libro)
+        {
+
+
+            return Ok();
         }
     }
 }
