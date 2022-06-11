@@ -46,8 +46,9 @@ $(document).ready(function () {
   */
     function displayResults(response) {
       for (var i = 0; i < response.items.length; i+=1) {
-	try{
+	try{ 
         item = response.items[i];
+        id = response.items.id;
         title1 = item.volumeInfo.title;
         author1 = item.volumeInfo.authors;
         publisher1 = item.volumeInfo.publisher;
@@ -58,7 +59,7 @@ $(document).ready(function () {
         bookImg1 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : placeHldr; // mostrara placeHldr si no hay img 
         // in production code, item.text should have the HTML entities escaped.
         outputList.innerHTML += '<div class="row mt-4">' +
-            formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn, catego) +
+            formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn, catego, id) +
                                 '</div>';
 	}catch(e){
 	    console.log('Error indice: '+i)
@@ -73,7 +74,7 @@ $(document).ready(function () {
     * @param bookImg title author publisher bookLink
     * @return htmlCard
     */
-    function formatOutput(bookImg, title, author, publisher, bookLink, bookIsb, cate) {
+    function formatOutput(bookImg, title, author, publisher, bookLink, bookIsb, cate, id) {
         // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
         var viewUrl = 'book.html?isbn=' + bookIsbn; //constructing link for bookviewer
         var htmlCard = `<div class="col-lg-6">

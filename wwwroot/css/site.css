@@ -7,6 +7,16 @@ html {
         font-family: karla;
         font-size: 16px;
     }
+} 
+
+li, ul {
+    list-style: none; 
+    color: white;
+}
+.imgRedonda {
+    width: 100px;
+    height: 100px;
+    border-radius: 150px;
 }
 
 color {
@@ -16,6 +26,7 @@ color {
 html {
     position: relative;
     min-height: 100%;
+    font-family: karla;
 }
 
 body {
