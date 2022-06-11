@@ -3,8 +3,11 @@
 }
 .navbar {
     background-color: #607B7D;
+}
+.cerrar {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
 } 
-
 #h2 {
     font-family: 'Karla';
     font-style: normal;

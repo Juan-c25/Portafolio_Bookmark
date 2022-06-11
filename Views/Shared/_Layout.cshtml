@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom border-color box-shadow mb-3 nav-color">
             <div class="container-fluid">
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between"> 
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <ul class="navbar-nav flex-grow-1">
@@ -41,74 +41,81 @@
 
                         </ul>
                     }
-                    <partial name="_LoginPartial" /> 
-                     @if (SignInManager.IsSignedIn(User)){
-                    <!--Boton para abir sidebar-->
-                    <button class="btn navbar-dark " id="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#MenuNavegacion">
-                        <span id="hamburger" class="navbar-toggler-icon"></span>
-                    </button>
+                    <partial name="_LoginPartial" />
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <!--Boton para abir sidebar-->
+                        <button class="btn navbar-dark " id="hamburger" type="button" data-bs-toggle="offcanvas" data-bs-target="#MenuNavegacion">
+                            <span id="hamburger" class="navbar-toggler-icon"></span>
+                        </button>
                     }
                 </div>
             </div>
 
         </nav>
-        <!--offcavas sidebar--> 
-         @if (SignInManager.IsSignedIn(User))
-                            {
-        <div id="MenuNavegacion" class="offcanvas offcanvas-end offcanvas-color">
-            <div class="offcanvas-header">
+        <!--offcavas sidebar-->
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div id="MenuNavegacion" class="offcanvas offcanvas-end offcanvas-color">
+                <div class="offcanvas-header">
 
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
 
-            </div>
-            <div class="offcanvas-body">
-                <div class="row">
-                    <div class="list-group">
-                        <div class="modal-header justify-content-center border-0 p-4">
-                           
+                </div>
+                <div class="offcanvas-body">
+                    <div class="row">
+
+                        <div class="list-group">
+                            <div class="modal-header justify-content-center border-0 p-4">
+
                                 <ul>
-                                    <li class="nav-item">
-                                        <a id="manage" class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-                                    </li>
-                                   <li>   
-                                    <div class="modal-body text-uppercase px-0 py-4 flex-1">
-                                        <ul class="nav nav-pills flex-column mb-auto">
-                                            <li class="nav-item ">
-                                                <a href="#" class="nav-link fa-solid fa-book-bookmark">
 
-                                                    Desafio de Lectura
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="nav-link fa-solid fa-gear ">
-                                                    Configuracion
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    </li>
                                     <li class="nav-item">
-                                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Principal", "Home", new { area = "" })">
-                                            <button id="logout" type="submit" class="nav-link btn btn-link text-light">Logout</button>
+                                        <img src="~/img/undraw_male_avatar_323b.png" class="imgRedonda" />
+                                        <a id="manage" class="nav-link fa-solid text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                                    </li>
+                                    <hr />
+                                    <li>
+                                        <div class="modal-body text-uppercase px-0 py-4 flex-1">
+                                            <ul class="nav nav-pills flex-column mb-auto">
+                                                <li class="nav-item ">
+                                                    <a href="#" class="nav-link fa-solid text-light">
+                                                        Desafio de Lectura
+                                                    </a>
+                                                </li>
+                                                <hr />
+                                                <li>
+                                                    <a  class="nav-link fa-solid text-light" asp-area="Identity" asp-page="/Account/Manage/Index">
+                                                        Configuracion
+                                                    </a>
+                                                </li> 
+                                                <hr />
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <form id="logoutForm" class="form-inline fa-solid" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Principal", "Home", new { area = "" })">
+                                            <button id="logout" type="submit" class="nav-link btn btn-link text-light cerrar">Cerrar Sesion</button>
                                         </form>
                                     </li>
                                 </ul>
-                           
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br />
-                <div class="modal-footer justify-content-start border-0 p-3">
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item ">
+                    <br />
+                    <div class="modal-footer justify-content-start border-0 p-3">
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li class="nav-item ">
 
-                        </li>
+                            </li>
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
- }
+        }
 
     </header>
     <div class="container">
