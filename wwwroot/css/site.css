@@ -1,18 +1,48 @@
 html {
     font-size: 14px;
+    
 }
-
+btn {
+    text-decoration: none;
+}
 @media (min-width: 768px) {
     html {
         font-family: karla;
         font-size: 16px;
     }
-} 
-
-li, ul {
-    list-style: none; 
+}
+text-light { 
+    text-decoration: none;
+}
+h3 {
     color: white;
 }
+p {
+    color: white;
+}
+li:hover {
+    color: white;
+    cursor: pointer;
+}
+a:hover {
+    color: white;
+    cursor: pointer;
+}
+.nav-link, .nav:hover {
+    color: white;
+   
+    cursor: pointer;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link  {
+    background-color: #607B7D;
+}
+
+li, ul {
+    list-style: none;
+    color: white;
+}
+
 .imgRedonda {
     width: 100px;
     height: 100px;
@@ -39,7 +69,7 @@ h1 {
 }
 
 p {
-    color: black;
+    color: white;
 }
 
 .br {
@@ -55,23 +85,25 @@ a, span {
     width: 300px;
     height: 600px;
 }
-hr{ 
+
+hr {
     color: white;
 }
-.texbox{ 
+
+.texbox {
     width: 400px;
 }
-.colortext{ 
+
+.colortext {
     color: white;
 }
+
 .colorbtn {
-    background-color: #607B7D; 
-    border-color: white; 
+    background-color: #607B7D;
+    border-color: white;
+}
 
-} 
 .abs-center {
-
-  align-items: center;
-  justify-content: center;
-
+    align-items: center;
+    justify-content: center;
 }
