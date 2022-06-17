@@ -72,7 +72,7 @@
 
                                     <li class="nav-item">
                                         <img src="~/img/undraw_male_avatar_323b.png" class="imgRedonda" />
-                                        <a id="manage" class="nav-link fa-solid text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bienvenido, @UserManager.GetUserName(User)!</a>
+                                        <a id="manage" class="nav-link fa-solid text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hola! @UserManager.GetUserName(User)!</a>
                                     </li>
                                     <hr />
                                     <li>
@@ -123,7 +123,7 @@
             @RenderBody()
         </main>
     </div>
-    <script src="~/js/busqueda.js" asp-append-version="true"> </script>
+   
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/index.js"></script>

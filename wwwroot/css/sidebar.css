@@ -2,8 +2,9 @@
 background: #607B7D;
 }
 .li {
+    
     list-style: none;
-    font-size: 12px; 
+    font-size: 12px;
     font-style: normal;
 }
 .ul {

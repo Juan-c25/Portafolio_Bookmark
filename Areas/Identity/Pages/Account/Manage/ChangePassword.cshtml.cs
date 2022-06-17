@@ -55,7 +55,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
-            [Display(Name = "Contraseña actual")]
+            [Display(Name = "Contraseña Actual")]
             public string OldPassword { get; set; }
 
             /// <summary>
@@ -63,7 +63,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "La {0} debe tener al menos {2} y maximo {1} carateres.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "La contraseña debe de tener un largo manimo de 6", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Nueva contraseña")]
             public string NewPassword { get; set; }
@@ -73,8 +73,8 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirma la nueva contraseña")]
-            [Compare("NewPassword", ErrorMessage = "La nueva contraseña no es igual.")]
+            [Display(Name = "Confirmar Nueva contraseña")]
+            [Compare("NewPassword", ErrorMessage = "Las Contraseña no coiciden.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -119,8 +119,8 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            _logger.LogInformation("Contraseña cambiada con exito.");
-            StatusMessage = "Tu contraseña ha sido cambiada.";
+            _logger.LogInformation("Cambio la contraseña exitosamente.");
+            StatusMessage = "Su contrasela a sido cambiada.";
 
             return RedirectToPage();
         }

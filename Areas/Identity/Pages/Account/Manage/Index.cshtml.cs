@@ -30,6 +30,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
+         
         public string Username { get; set; }
 
         /// <summary>
@@ -55,9 +56,11 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
+            /// </summary> 
+            /// 
             [Phone]
-            [Display(Name = "Numero de telefono")]
+            [Display(Name = "Numero de telefono")] 
+           
             public string PhoneNumber { get; set; }
         }
 
@@ -106,13 +109,13 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    StatusMessage = "Error inesperado al cambiar tu telefono.";
+                    StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Tu perfil ha sido actualizado";
+            StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
     }
