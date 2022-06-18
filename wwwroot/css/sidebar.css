@@ -2,8 +2,9 @@
 background: #607B7D;
 }
 .li {
+    
     list-style: none;
-    font-size: 12px; 
+    font-size: 12px;
     font-style: normal;
 }
 .ul {
@@ -16,4 +17,7 @@ background: #607B7D;
     position: absolute;
     padding: 11px;
     right: 1px;
+}
+.closecolor{ 
+    color: white;
 }

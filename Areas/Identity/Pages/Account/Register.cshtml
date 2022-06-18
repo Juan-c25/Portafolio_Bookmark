@@ -13,7 +13,7 @@
             <div class="card my-5 rounded " id="card">
                 <h2 class="text-center text-dark mt-5">Crear Cuenta</h2>
                 <div id="enca" class="text-center mb-5 text-dark">
-                    Crear una cuenta y disfruta compartir tus gusto en esta maravillosa
+                    Crea una cuenta y disfruta compartir tus gusto en esta maravillosa
                     comunidad.
                 </div>
                 <div row border>
@@ -26,7 +26,7 @@
                             <span asp-validation-for="Input.Nombre" class="text-danger"></span>
                         </div>
                         <div class="form-floating mb-3">
-                            <input asp-for="Input.Email" class="form-control email" autocomplete="username" aria-required="true" />
+                            <input asp-for="Input.Email" class="form-control email" autocomplete="Email" aria-required="true" />
                             <label asp-for="Input.Email"></label>
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input asp-for="Input.ConfirmPassword" class="form-control contra" autocomplete="new-password" aria-required="true" />
-                            <label asp-for="Input.ConfirmPassword"></label>
+                             <label asp-for="Input.ConfirmPassword"></label>
                             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                         </div>
                         <div class="text-center">
