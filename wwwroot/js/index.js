@@ -88,10 +88,10 @@ $(document).ready(function () {
            </div>
            <div class="col-md-8">
              <div class="card-body">
-               <h5 class="card-title">${title}</h5>
-               <p class="card-text">Autor: ${author}</p>
-               <p class="card-text">Editorial: ${publisher}</p>
-                <p class="card-text">Categoria: ${cate} </p>
+               <h5 class="card-title text-dark">${title}</h5>
+               <p class="card-text text-dark">Autor: ${author}</p>
+               <p class="card-text text-dark">Editorial: ${publisher}</p>
+                <p class="card-text text-dark">Categoria: ${cate} </p>
                 <p>
                     <select class="form-select" aria-label="Default select example">
                       <option value="0" selected>Selecionar...</option>
