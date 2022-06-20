@@ -9,6 +9,7 @@
         public string? Cate { get; set; }
         public int Estado { get; set; }
         public string? Portada { get; set; }
+        public int Usaurio { get; set; }
 
     }
 }

@@ -15,14 +15,21 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css//sidebar.css" asp-append-version="true" />
 </head>
-<div class="row"> 
-    <div  class="col-md-0 offset-md-0"> 
-        <div class="card my-0 rounded" id="card"> 
-           <div class="lightbox-gallery">
-   
-</div> 
+<div class="book-list">
+    <!--Texbox y boton de busqueda-->
+
+    <h2 class="text-center colortext">Descubrir Libros</h2> 
+    <hr />
+    <div id="list-output" class="">
+        <div class="row">
+            <!-- card  -->
 
         </div>
-    </div>
 
+    </div>
 </div>
+
+@section scripts{
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/FnDbLibro.js"></script>
+}

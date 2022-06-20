@@ -5,43 +5,34 @@ $(document).ready(function () {
     var bookUrl = "https://www.googleapis.com/books/v1/volumes?q=";
     var apiKey = "Key=AIzaSyDcoLxcFGM6uiIgYdYe_HqO7EblZ2gkcI4";
     var placeHldr = 'https://ctuid.com/img/not-found.png';
-    var searchData;
+    var searchData = ["Fiction", "Literary+Criticism", "Photography", "Artistic", "Social+Science", "Law"]
 
 
     //listener para boton buscar 
-    $("#search").click(function () {
+    $(document).ready(function () {
+        console.log("iniciando")
         outputList.innerHTML = "";
-        document.body.style.backgroundImage = "url('')";
-        searchData = $("#search-box").val();
-        console.log("busqueda: "+searchData);
-        if (searchData === "" || searchData === null) {
-          //  displayError();
-            //causa del error es que se repite
-            console.log('Error de busqueda');
-        }
-        else {
-            // console.log(searchData);
-            // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
-            $.ajax({
-                url: bookUrl + searchData,
-                dataType: "json",
-                success: function (response) {
-                    console.log(response)
-                    if (response.totalItems === 0) {
-                        alert("Sin resultado!.. Intente de nuevo")
-                    }
-                    else {
-                        $("#title").animate({ 'margin-top': '5px' }, 1000); //search box animation
-                        $(".book-list").css("visibility", "visible");
-                        displayResults(response);
-                    }
-                },
-                error: function () {
-                    alert("Algo salio masl.. <br>" + " Intentelo denuevo!");
+        document.body.style.backgroundImage = "url"
+        // console.log(searchData);
+        // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
+        $.ajax({
+            url: bookUrl + getRandomItem(searchData),
+            dataType: "json",
+            success: function (response) {
+                console.log(response)
+                if (response.totalItems === 0) {
+                    alert("Sin resultado!.. Intente de nuevo")
                 }
-            });
-        }
-        $("#search-box").val(""); //clearn search box
+                else {
+                    $("#title").animate({ 'margin-top': '5px' }, 1000); //search box animation
+                    $(".book-list").css("visibility", "visible");
+                    displayResults(response);
+                }
+            },
+            error: function () {
+                alert("Algo salio masl.. <br>" + " Intentelo denuevo!");
+            }
+        });
     });
     /*
   * function to display result in index.html
@@ -86,12 +77,12 @@ $(document).ready(function () {
            <div class="col-md-4">
              <img src="${bookImg}" class="card-img" alt="...">
            </div>
-           <div class="col-md-8">
-             <div class="card-body">
+           <div class="col-md-8 ">
+             <div class="card-body ">
                <h5 class="card-title text-dark">${title}</h5>
                <p class="card-text text-dark">Autor: ${author}</p>
-               <p class="card-text text-dark">Editorial: ${publisher}</p>
-                <p class="card-text text-dark">Categoria: ${cate} </p>
+               <p class="card-text  text-dark">Editorial: ${publisher}</p>
+                <p class="card-text  text-dark">Categoria: ${cate} </p>
                 <p>
                     <select class="form-select" aria-label="Default select example">
                       <option value="0" selected>Selecionar...</option>
@@ -138,4 +129,15 @@ function fncGuardar(titulo, autor, publisher, categoria, boton, portada) {
         },
     });
 
+}
+
+function getRandomItem(arr) {
+
+    // get random index value
+    const randomIndex = Math.floor(Math.random() * arr.length);
+
+    // get random item
+    const item = arr[randomIndex];
+
+    return item;
 }
