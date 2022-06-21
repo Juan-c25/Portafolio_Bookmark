@@ -27,18 +27,15 @@
                     {
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Descubrir</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Busqueda">Busqueda</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="MisLibros">Mis libros</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Busqueda">Busqueda</a>
-                            </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Descubrir">Descubrir</a>
+                            </li>
                         </ul>
                     }
                     <partial name="_LoginPartial" />
@@ -85,15 +82,15 @@
                                                 </li>
                                                 <hr />
                                                 <li>
-                                                    <a  class="nav-link fa-solid text-light" asp-area="Identity" asp-page="/Account/Manage/Index">
+                                                    <a class="nav-link fa-solid text-light" asp-area="Identity" asp-page="/Account/Manage/Index">
                                                         Configuracion
                                                     </a>
-                                                </li> 
+                                                </li>
                                                 <hr />
                                             </ul>
                                         </div>
                                     </li>
-                                    
+
                                     <li class="nav-item">
                                         <form id="logoutForm" class="form-inline fa-solid" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Principal", "Home", new { area = "" })">
                                             <button id="logout" type="submit" class="nav-link btn btn-link text-light cerrar">Cerrar Sesion</button>
@@ -123,7 +120,7 @@
             @RenderBody()
         </main>
     </div>
-   
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/index.js"></script>
