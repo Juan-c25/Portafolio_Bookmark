@@ -10,14 +10,18 @@ $(document).ready(function () {
 
 
 
-    $(document).ready(function () {
-        console.log("iniciando")
+    $("#descubrir").click(function () {
+        console.log("descubrirSelect")
         outputList.innerHTML = "";
+        buscar = $("#descubrirSelect").val();
+        if (buscar == "aleatorio") {
+            buscar = getRandomItem(searchData)
+        }
         document.body.style.backgroundImage = "url"
         // console.log(searchData);
         // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData+subject, getBookData()});
         $.ajax({
-            url: bookUrl + getRandomItem(searchData),
+            url: bookUrl + getRandomItem(buscar),
             dataType: "json",
             success: function (response) {
                 console.log(response)
