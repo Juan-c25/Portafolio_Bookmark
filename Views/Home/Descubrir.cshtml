@@ -27,24 +27,25 @@
 
 
                     <ul class="navbar-nav flex-grow-1">
+                       
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="">Aleatorio</a>
-                        </li>
-                        <li class="nav-item">
-                            <select class="form-select descubrirC" aria-label="Default select example">
-                                <option selected>Descubrir segun genero:</option>
-                                <option value="1">Fiction</option>
-                                <option value="2">Photography</option>
-                                <option value="3">Artistic</option> 
-                                <option value="4">Law</option> 
-                                <option value="6">Classic</option> 
-                                <option value="7">Comic</option> 
-                                <option value="8">Crime</option> 
-                                <option value="9">Fantasy</option> 
-                                <option value="10">Graphic novel</option> 
-                                <option value="11">Science</option> 
-                                <option value="12">Computers</option>
+                            <select id="descubrirSelect" class="form-select descubrirC" aria-label="Default select example">
+                                <option selected value="aleatorio">aleatorio</option>
+                                <option value="Fiction">Fiction</option>
+                                <option value="photography">Photography</option>
+                                <option value="Artistic">Artistic</option> 
+                                <option value="law">Law</option> 
+                                <option value="classic">Classic</option> 
+                                <option value="comic">Comic</option> 
+                                <option value="crime">Crime</option> 
+                                <option value="fantasy">Fantasy</option> 
+                                <option value="graphic novel">Graphic novel</option> 
+                                <option value="science">Science</option> 
+                                <option value="computer">Computers</option>
                             </select>
+                        </li>
+                         <li class="nav-item">
+                           <button type="button" class="btn btn-primary" id="descubrir">Descubrir</button>
                         </li>
                     </ul>
 
