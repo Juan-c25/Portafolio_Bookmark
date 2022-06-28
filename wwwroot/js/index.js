@@ -80,8 +80,10 @@ $(document).ready(function () {
     function formatOutput(bookImg, title, author, publisher, bookLink, bookIsb, cate, id) {
         // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
         var viewUrl = 'book.html?isbn=' + bookIsbn; //constructing link for bookviewer
-        var htmlCard = `<div class="col-lg-6">
+        var htmlCard = `<div class="col-lg-6"> 
+
        <div class="card" style="">
+
          <div class="row no-gutters">
            <div class="col-md-4">
              <img src="${bookImg}" class="card-img" alt="...">

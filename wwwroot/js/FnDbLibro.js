@@ -5,18 +5,23 @@ $(document).ready(function () {
     var bookUrl = "https://www.googleapis.com/books/v1/volumes?q=";
     var apiKey = "Key=AIzaSyDcoLxcFGM6uiIgYdYe_HqO7EblZ2gkcI4";
     var placeHldr = 'https://ctuid.com/img/not-found.png';
-    var searchData = ["Fiction", "Literary+Criticism", "Photography", "Artistic", "Social+Science", "Law"]
+    var searchData = ["Fiction", "Literary+Criticism", "Photography", "Artistic", "Social+Science", "Law", "Classic", "Comic", "Crime", "Fantasy", "Graphic novel", "Historical fiction", "Horror", "Mystery", "Paranormal romance",
+        "Science", "Computers", "Java ", "Technology & Engineering", "Young Adult Fiction", "Comics & Graphic Novels", "Juvenile Fiction", " Literary Collections", ]
 
 
-    //listener para boton buscar 
-    $(document).ready(function () {
-        console.log("iniciando")
+
+    $("#descubrir").click(function () {
+        console.log("descubrirSelect")
         outputList.innerHTML = "";
+        buscar = $("#descubrirSelect").val();
+        if (buscar == "aleatorio") {
+            buscar = getRandomItem(searchData)
+        }
         document.body.style.backgroundImage = "url"
         // console.log(searchData);
-        // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
+        // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData+subject, getBookData()});
         $.ajax({
-            url: bookUrl + getRandomItem(searchData),
+            url: bookUrl + getRandomItem(buscar),
             dataType: "json",
             success: function (response) {
                 console.log(response)
@@ -71,9 +76,9 @@ $(document).ready(function () {
     function formatOutput(bookImg, title, author, publisher, bookLink, bookIsb, cate, id) {
         // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
         var viewUrl = 'book.html?isbn=' + bookIsbn; //constructing link for bookviewer
-        var htmlCard = `<div class="col-lg-6">
-       <div class="card" style="">
-         <div class="row no-gutters">
+        var htmlCard = `<div class="col-lg-6 ">
+       <div class="card my-5 rounded " style="">
+         <div class="row no-gutters ">
            <div class="col-md-4">
              <img src="${bookImg}" class="card-img" alt="...">
            </div>

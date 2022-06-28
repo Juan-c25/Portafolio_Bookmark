@@ -107,3 +107,16 @@ hr {
     align-items: center;
     justify-content: center;
 }
+.cardC {
+    justify-content: center;
+}
+.libro1 {
+    width: 300px;
+    height: 100px; 
+ 
+} 
+
+.libro2 {
+    width: 300px;
+    height: 100px;
+}
