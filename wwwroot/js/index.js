@@ -137,9 +137,9 @@ function fncGuardar(titulo, autor, publisher, categoria, boton, portada) {
     }
 
     $.ajax({
-        url: 'https://navarrolabs.cl/test/api',
+        url: 'https://navarrolabs.cl/test/guardar',
         data: data,
-        method: 'POST',
+        method: 'GET',
         success: function (resp) {
         },
         success: function (a, b, c) {
