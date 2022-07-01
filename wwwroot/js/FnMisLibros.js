@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     getDataForDatatables();
+
 });
 
 function getDataForDatatables() {
@@ -7,8 +8,7 @@ function getDataForDatatables() {
         url: 'https://navarrolabs.cl/test/api',
         dataType: "json",
         success: function (response) {
-            console.log(response)
-            setDataToTable(response);
+            setDataToTable(response.libros.AllUsers);
         },
         error: function () {
             alert("Algo salio masl.. <br> Intentelo denuevo!");
@@ -16,14 +16,50 @@ function getDataForDatatables() {
     });
 }
 
-function setDataToTable(jsonData) {
-    $('#employee').DataTable({
-        pagination: "bootstrap",
-        filter: true,
-        data: jsonData.libros.AllUsers,
-        destroy: true,
-        lengthMenu: [5, 10, 25],
-        pageLength: 10,
+
+function setDataToTable(datos) {
+    var d = '<tbody>';
+    for (var iteam of datos) {
+        select = ""
+        tipoEstado = ['Quiero Leer', 'Leyendo', 'Leido']
+        select = `<select size="1" class="form-select" id="row-${iteam.id_libro}" name="row-${iteam.id_libro}">`
+        for (var i = 0; i <= tipoEstado.length; i++) {
+            if (iteam.estado == 1 + i) {
+                select += `<option value='${iteam.estado}' selected>${tipoEstado[i]}</option>`
+            } else {
+                if (i <= 2) {
+                    select += `<option value='${1 + i}'>${tipoEstado[i]}</option>`
+                }
+            }
+        }
+        select += "</select>"
+        d += '<tr>' +
+            '<td>' + iteam.titulo + '</td>' +
+            '<td>' + iteam.autor + '</td>' +
+            '<td>' + iteam.cate + '</td><td>' + select +
+            '</td><td>' + iteam.estado + '</td>' +
+            `<td>
+ <button type="button" id="row-${iteam.id_libro}" class="btn btn-warning" onclick="btn_Editar('row-${iteam.id_libro}')">Editar</button>
+ <button type="button" id="row-${iteam.id_libro}" class="btn btn-danger" onclick="btn_Eliminar(${iteam.id_libro})">Eliminar</button> 
+ </td> 
+</tr>`;
+    }
+    d += `</tbody><tfoot>
+    <tr>
+        <th>itulo</th>
+        <th>Autor</th>
+        <th>Categoria</th>
+        <th>Estado</th>
+        <th>Valir estado</th>
+        <th>Control</th>
+    </tr>
+</tfoot>`
+    $("#tabla").append(d);
+    formatoTable();
+};
+
+function formatoTable() {
+    var table = $('#tabla').DataTable({
         "language": {
             "processing": "Procesando...",
             "lengthMenu": "Mostrar _MENU_ registros",
@@ -203,10 +239,46 @@ function setDataToTable(jsonData) {
             },
             "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas"
         },
-        "columns": [
-            { data: "titulo" },
-            { data: "autor" },
-            { data: "cate" }
-        ]
+        columnDefs: [
+            {
+                orderable: false,
+                targets: [1, 2, 3],
+            }
+        ],
     });
+};
+
+
+function btn_Eliminar(id_libro) {
+    var data = {
+        id_libro: id_libro
+    }
+    $.ajax({
+        url: 'https://navarrolabs.cl/test/eliminar',
+        data: data,
+        method: 'GET',
+        success: function (resp) {
+        },
+        success: function (a, b, c) {
+        },
+    });
+    location.reload();
+}
+
+function btn_Editar(id_libro) {
+    var est = document.getElementById(id_libro).value;
+    var data = {
+        id_libro: id_libro.replace('row-', ''),
+        estado: est
+    }
+    $.ajax({
+        url: 'https://navarrolabs.cl/test/modificar',
+        data: data,
+        method: 'GET',
+        success: function (resp) {
+        },
+        success: function (a, b, c) {
+        },
+    });
+    location.reload();
 }
