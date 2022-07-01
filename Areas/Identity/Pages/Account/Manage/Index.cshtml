@@ -1,11 +1,12 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Perfil";
+    ViewData["Title"] = "Cambiar Nombre Usuario";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-<h3>@ViewData["Title"]</h3>
+<h3>@ViewData["Title"]</h3> 
+<br />
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
     <div class="col-md-6">
@@ -20,7 +21,8 @@
                 <input asp-for="Input.PhoneNumber" class="form-control" />
                 <label asp-for="Input.PhoneNumber" class="form-label"></label>
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
+            </div> 
+            <br />
             <button id="update-profile-button" type="submit" class="btn btn-color btn-primary btn-lg sinborde">Guardar</button>
         </form>
     </div>

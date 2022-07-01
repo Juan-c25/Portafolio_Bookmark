@@ -34,7 +34,8 @@ a:hover {
     cursor: pointer;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link  {
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    
     background-color: #607B7D;
 }
 
@@ -119,4 +120,14 @@ hr {
 .libro2 {
     width: 300px;
     height: 100px;
+}
+.btn-primary {
+    background-color: #607B7D;
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
