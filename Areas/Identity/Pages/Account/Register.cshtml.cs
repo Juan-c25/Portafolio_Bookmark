@@ -89,7 +89,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "La contraseña debe de tener un minimo de largo de 6.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "La contraseña debe de tener un minimo de 6 caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Contraseña")]
             public string Password { get; set; }
