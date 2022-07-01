@@ -1,13 +1,16 @@
 ﻿<div class="book-list">
     <!--Texbox y boton de busqueda-->
-    <div  class="d-flex abs-center">
+    <div class="d-flex abs-center">
         <input class="form-control me-2  texbox" type="text" id="search-box" placeholder="Titulo o Autor..." />
         <button id="search" class="btn btn-primary colorbtn" onclick="">
             <i class="fas fa-search"></i>
         </button>
-    </div> 
+    </div>
+
     <hr />
-    <h2 class="text-center colortext">Resultado de la busqueda</h2> 
+
+    <h2 class="text-center colortext" align="center"><img src="~/img/Book-Row-PNG-HD.png"  class="libro1" />  Resultado de la busqueda  <img src="~/img/Book-Row-PNG-HD.png"  class="libro2" /> </h2>
+
     <hr />
     <div id="list-output" class="">
         <div class="row">
@@ -19,6 +22,6 @@
 </div>
 
 @section scripts{
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/index.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/index.js"></script>
 }
