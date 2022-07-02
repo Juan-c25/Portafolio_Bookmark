@@ -34,14 +34,14 @@ function setDataToTable(datos) {
         }
         select += "</select>"
         d += '<tr>' +
-            '<td>' + iteam.titulo + '</td>' +
-            '<td>' + iteam.autor + '</td>' +
-            '<td>' + iteam.cate + '</td><td>' + select +
-            '</td><td>' + `<img src="${iteam.portada}" alt= "${iteam.titulo}" height="55" width= "30">` + '</td>' +
+            '<td style ="width: 250px; " >' + iteam.titulo + '</td>' +
+            '<td style ="width: 150px; " >' + iteam.autor + '</td>' +
+            '<td style ="width: 100px;">' + iteam.cate + '</td><td>' + select +
+            '</td><td>' + `<div align="center" ><img src="${iteam.portada}" alt= "${iteam.titulo}" height="80" width= "60"></div> ` + '</td>' +
             `<td>
- <button type="button" id="row-${iteam.id_libro}" class="btn btn-warning" onclick="btn_Editar('row-${iteam.id_libro}')">Editar</button>
- <button type="button" id="row-${iteam.id_libro}" class="btn btn-danger" onclick="btn_Eliminar(${iteam.id_libro})">Eliminar</button> 
- </td> 
+ <button type="button" id="row-${iteam.id_libro}" class="btn btn-warning" onclick="btn_Editar('row-${iteam.id_libro}')"><i class="far fa-edit"></i></button>
+ <button type="button" id="row-${iteam.id_libro}" class="btn btn-danger" onclick="btn_Eliminar(${iteam.id_libro})"><i class="fas fa-trash-alt"></i></button>
+ </td>
 </tr>`;
     }
     d += `</tbody><tfoot>
@@ -242,7 +242,7 @@ function formatoTable() {
         columnDefs: [
             {
                 orderable: false,
-                targets: [1, 2, 3],
+                targets: [3, 4, 5],
             }
         ],
     });
@@ -250,10 +250,28 @@ function formatoTable() {
 
 
 function btn_Eliminar(id_libro) {
-    var data = {
+    Swal.fire({
+        title: "¿Seguro que lo quiere eliminar?",
+        type: "info",
+        showCancelButton: true,
+        confirmButtonText: "Eliminar",
+        confirmButtonColor: "#ff0055",
+        cancelButtonColor: "#999999",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true,
+        focusConfirm: false,
+        focusCancel: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Eliminado!',
+                'Libro a sido elimiando de forma exitosa',
+                'success'
+            )
+            var data = {
         id_libro: id_libro
-    }
-    $.ajax({
+    };
+        $.ajax({
         url: 'https://navarrolabs.cl/test/eliminar',
         data: data,
         method: 'GET',
@@ -265,24 +283,67 @@ function btn_Eliminar(id_libro) {
     setTimeout(function () {
         location.reload(true);
     }, 3000);
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            Swal.fire(
+                'Cancelado',
+                'Proceso cancelado',
+                'error'
+            )
+        }
+    })
+    
 }
 
 function btn_Editar(id_libro) {
-    var est = document.getElementById(id_libro).value;
-    var data = {
-        id_libro: id_libro.replace('row-', ''),
-        estado: est
-    }
-    $.ajax({
-        url: 'https://navarrolabs.cl/test/modificar',
-        data: data,
-        method: 'GET',
-        success: function (resp) {
-        },
-        success: function (a, b, c) {
-        },
-    });
-    setTimeout(function () {
-    location.reload(true);
-    }, 3000);
+
+    Swal.fire({
+        title: "¿Seguro que quiere modificar este libro?",
+        type: "info",
+        showCancelButton: true,
+        confirmButtonText: "Guardar cambios",
+        confirmButtonColor: "#008000",
+        cancelButtonColor: "#999999",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true,
+        focusConfirm: false,
+        focusCancel: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Guardado!',
+                'los cambios an sido Guardados',
+                'success'
+            )
+            var est = document.getElementById(id_libro).value;
+            var data = {
+                id_libro: id_libro.replace('row-', ''),
+                estado: est
+            }
+            $.ajax({
+                url: 'https://navarrolabs.cl/test/modificar',
+                data: data,
+                method: 'GET',
+                success: function (resp) {
+                },
+                success: function (a, b, c) {
+                },
+            });
+            setTimeout(function () {
+                location.reload(true);
+            }, 3000);
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            Swal.fire(
+                'Cancelado',
+                'Proceso cancelado',
+                'error'
+            )
+        }
+    })
+    
 }
