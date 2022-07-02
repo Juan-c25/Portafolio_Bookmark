@@ -37,7 +37,7 @@ function setDataToTable(datos) {
             '<td>' + iteam.titulo + '</td>' +
             '<td>' + iteam.autor + '</td>' +
             '<td>' + iteam.cate + '</td><td>' + select +
-            '</td><td>' + iteam.estado + '</td>' +
+            '</td><td>' + `<img src="${iteam.portada}" alt= "${iteam.titulo}" height="55" width= "30">` + '</td>' +
             `<td>
  <button type="button" id="row-${iteam.id_libro}" class="btn btn-warning" onclick="btn_Editar('row-${iteam.id_libro}')">Editar</button>
  <button type="button" id="row-${iteam.id_libro}" class="btn btn-danger" onclick="btn_Eliminar(${iteam.id_libro})">Eliminar</button> 
@@ -46,12 +46,12 @@ function setDataToTable(datos) {
     }
     d += `</tbody><tfoot>
     <tr>
-        <th>itulo</th>
+        <th>Titulo</th>
         <th>Autor</th>
         <th>Categoria</th>
         <th>Estado</th>
-        <th>Valir estado</th>
-        <th>Control</th>
+        <th>Portada</th>
+        <th>Botones</th>
     </tr>
 </tfoot>`
     $("#tabla").append(d);
@@ -262,7 +262,9 @@ function btn_Eliminar(id_libro) {
         success: function (a, b, c) {
         },
     });
-    location.reload();
+    setTimeout(function () {
+        location.reload(true);
+    }, 3000);
 }
 
 function btn_Editar(id_libro) {
@@ -280,5 +282,7 @@ function btn_Editar(id_libro) {
         success: function (a, b, c) {
         },
     });
-    location.reload();
+    setTimeout(function () {
+    location.reload(true);
+    }, 3000);
 }
