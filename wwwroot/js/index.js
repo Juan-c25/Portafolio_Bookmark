@@ -13,9 +13,9 @@ $(document).ready(function () {
         outputList.innerHTML = "";
         document.body.style.backgroundImage = "url('')";
         searchData = $("#search-box").val();
-        console.log("busqueda: "+searchData);
+        console.log("busqueda: " + searchData);
         if (searchData === "" || searchData === null) {
-          //  displayError();
+            //  displayError();
             //causa del error es que se repite
             console.log('Error de busqueda');
         }
@@ -48,27 +48,28 @@ $(document).ready(function () {
   * @param response
   */
     function displayResults(response) {
-      for (var i = 0; i < response.items.length; i+=1) {
-	try{ 
-        item = response.items[i];
-        id = response.items.id;
-        title1 = item.volumeInfo.title;
-        author1 = item.volumeInfo.authors;
-        publisher1 = item.volumeInfo.publisher;
-        descrip = item.volumeInfo.description;
-        bookLink1 = item.volumeInfo.previewLink;
-        catego = item.volumeInfo.categories; 
-        bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier
-        bookImg1 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : placeHldr; // mostrara placeHldr si no hay img 
-        // in production code, item.text should have the HTML entities escaped.
-        outputList.innerHTML += '<div class="row mt-4">' +
-            formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn, catego, id) +
-                                '</div>';
-	}catch(e){
-	    console.log('Error indice: '+i)
-	}
-        console.log(outputList);
-      }
+        for (var i = 0; i < response.items.length; i += 1) {
+            try {
+                item = response.items[i];
+                id = response.items.id;
+                title1 = item.volumeInfo.title;
+                author1 = item.volumeInfo.authors;
+                publisher1 = item.volumeInfo.publisher;
+                descrip = item.volumeInfo.description;
+                bookLink1 = item.volumeInfo.previewLink;
+                catego = item.volumeInfo.categories;
+                bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier
+                bookImg1 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : placeHldr; // mostrara placeHldr si no hay img 
+                // in production code, item.text should have the HTML entities escaped.
+                //outputList.innerHTML += '<div class="row mt-4">' +
+                //    formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn, catego, id) +
+                //    '</div>';
+                outputList.innerHTML += formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn, catego, id);
+            } catch (e) {
+                console.log('Error indice: ' + i)
+            }
+            console.log(outputList);
+        }
 
     }
 
@@ -80,7 +81,7 @@ $(document).ready(function () {
     function formatOutput(bookImg, title, author, publisher, bookLink, bookIsb, cate, id) {
         // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
         var viewUrl = 'book.html?isbn=' + bookIsbn; //constructing link for bookviewer
-        var htmlCard = `<div class="col-lg-6"> 
+        var htmlCard = `<div class="col-lg-6 mb-2"> 
 
        <div class="card" style="">
 
@@ -89,7 +90,7 @@ $(document).ready(function () {
              <img src="${bookImg}" class="card-img" alt="...">
            </div>
            <div class="col-md-8">
-             <div class="card-body">
+             <div class="card-body min-tamano">
                <h5 class="card-title text-dark">${title}</h5>
                <p class="card-text text-dark">Autor: ${author}</p>
                <p class="card-text text-dark">Editorial: ${publisher}</p>
