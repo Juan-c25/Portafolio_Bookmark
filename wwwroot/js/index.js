@@ -142,10 +142,25 @@ function fncGuardar(titulo, autor, publisher, categoria, boton, portada) {
         data: data,
         method: 'GET',
         success: function (resp) {
+            Swal.fire({
+                toast: true,
+                icon: 'success',
+                title: 'General Title',
+                animation: false,
+                position: 'top-right',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                },
+                animation: true,
+                title: 'Libro Guardado'
+            });
         },
         success: function (a, b, c) {
 
         },
     });
-
 }
