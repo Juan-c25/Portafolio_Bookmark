@@ -57,9 +57,7 @@ $(document).ready(function () {
         bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier
         bookImg1 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : placeHldr; // mostrara placeHldr si no hay img 
         // in production code, item.text should have the HTML entities escaped.
-        outputList.innerHTML += '<div class="row mt-4">' +
-            formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn, catego, id) +
-                                '</div>';
+        outputList.innerHTML += formatOutput(bookImg1, title1, author1, publisher1, bookLink1, bookIsbn, catego, id);
 	}catch(e){
 	    console.log('Error indice: '+i)
 	}
@@ -76,18 +74,20 @@ $(document).ready(function () {
     function formatOutput(bookImg, title, author, publisher, bookLink, bookIsb, cate, id) {
         // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
         var viewUrl = 'book.html?isbn=' + bookIsbn; //constructing link for bookviewer
-        var htmlCard = `<div class="col-lg-6 ">
-       <div class="card my-5 rounded " style="">
-         <div class="row no-gutters ">
+        var htmlCard = `<div class="col-lg-6 mb-2"> 
+
+       <div class="card" style="">
+
+         <div class="row no-gutters">
            <div class="col-md-4">
              <img src="${bookImg}" class="card-img" alt="...">
            </div>
-           <div class="col-md-8 ">
-             <div class="card-body ">
+           <div class="col-md-8">
+             <div class="card-body min-tamano">
                <h5 class="card-title text-dark">${title}</h5>
                <p class="card-text text-dark">Autor: ${author}</p>
-               <p class="card-text  text-dark">Editorial: ${publisher}</p>
-                <p class="card-text  text-dark">Categoria: ${cate} </p>
+               <p class="card-text text-dark">Editorial: ${publisher}</p>
+                <p class="card-text text-dark">Categoria: ${cate} </p>
                 <p>
                     <select class="form-select" aria-label="Default select example">
                       <option value="0" selected>Selecionar...</option>
