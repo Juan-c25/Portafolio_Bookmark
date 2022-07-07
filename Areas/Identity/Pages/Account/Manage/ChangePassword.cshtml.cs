@@ -63,7 +63,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "La contraseña debe de tener un largo manimo de 6", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "La contraseña debe de tener un minimo de 6 caracteres", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Nueva contraseña")]
             public string NewPassword { get; set; }
@@ -73,8 +73,8 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirmar Nueva contraseña")]
-            [Compare("NewPassword", ErrorMessage = "Las Contraseña no coiciden.")]
+            [Display(Name = "Confirmar nueva contraseña")]
+            [Compare("NewPassword", ErrorMessage = "Las contraseñas no coiciden.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -120,7 +120,7 @@ namespace Portafolio_Bookmark.Areas.Identity.Pages.Account.Manage
 
             await _signInManager.RefreshSignInAsync(user);
             _logger.LogInformation("Cambio la contraseña exitosamente.");
-            StatusMessage = "Su contrasela a sido cambiada.";
+            StatusMessage = "Cambio la contraseña exitosamente.";
 
             return RedirectToPage();
         }

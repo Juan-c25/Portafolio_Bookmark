@@ -120,14 +120,21 @@ function fncGuardar(titulo, autor, publisher, categoria, boton, portada) {
         alert('Se debe seleccionar un estado del libro');
         return;
     }
-    var data = { Title: titulo, Author: autor, Publisher: publisher, Cate: categoria, Estado: $(boton).parent().find('select').val() ,Portada: portada }
+    var data = {
+        Titulo: titulo,
+        Author: autor,
+        Publisher: publisher,
+        Cate: categoria,
+        Estado: $(boton).parent().parent().find('select').val(),
+        Portada: portada,
+        usuario: usuariID
+    }
 
     $.ajax({
-        url: '/Home/GuardarLibro',
+        url: 'https://navarrolabs.cl/test/guardar',
         data: data,
-        method: 'POST',
+        method: 'GET',
         success: function (resp) {
-
         },
         success: function (a, b, c) {
 

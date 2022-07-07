@@ -12,37 +12,29 @@
     <link rel="stylesheet" href="~/portafolio.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css//sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />    
 </head>
-<div class="d-flex abs-center">
-    <input class="form-control me-2  texbox" type="text" id="search-box2" placeholder="Titulo o id" />
-    <button id="search2" class="btn btn-primary colorbtn">
-        <i class="fas fa-search"></i>
-    </button>
-</div>
-<hr />
-<div class="container-fluid">
 
-    <div class="row">
-        <table class="table table-light table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Cubierta</th>
-                    <th scope="col">Titulo</th>
-                    <th scope="col">Autor</th>
-                    <th scope="col">Puntaje</th>
-                    <th scope="col">Reseña</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Fecha de inicio</th>
-                    <th scope="col">Fecha de Termino</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/dt/dt-1.10.22/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.22/datatables.min.js"></script>
+  <script src="~/js/FnMisLibros.js"></script>
+      <hr />
+    <h2 class="text-center colortext" align="center"><img src="~/img/Book-Row-PNG-HD.png" class="libro1" />  Mis Libros <img src="~/img/Book-Row-PNG-HD.png" class="libro2" /> </h2>
+    <hr />
 
-        </table>
-
-    </div>
-
+<div>
+ <table style="width:100%" class="display" id="tabla">
+    <thead>
+        <tr>
+            <th>titulo</th>
+            <th>Autor</th>
+            <th>Categoria</th>
+            <th>Estado</th>
+            <th>Estado</th>
+            <th>Botones</th>
+        </tr>
+    </thead>
+</table>
 </div>

@@ -115,10 +115,10 @@
             @RenderBody()
         </main>
     </div>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/index.js"></script>
+       <script> 
+        window.usuariID = "@UserManager.GetUserId(User)";
+    </script>
+          <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
