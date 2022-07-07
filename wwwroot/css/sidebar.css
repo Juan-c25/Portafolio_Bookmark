@@ -21,3 +21,7 @@ background: #607B7D;
 .closecolor{ 
     color: white;
 }
+.btn-check:focus + .btn, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(255 255 255 / 50%);
+}
