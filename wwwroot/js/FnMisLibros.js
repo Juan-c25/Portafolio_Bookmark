@@ -5,8 +5,8 @@
 
 function getDataForDatatables() {
     $.ajax({
-        url: 'https://navarrolabs.cl/test/api',
-        dataType: "json",
+        url: 'https://navarrolabs.cl/test/api?usuario='+usuariID,
+        dataType: "json", 
         success: function (response) {
             setDataToTable(response.libros.AllUsers);
         },
@@ -331,9 +331,7 @@ function btn_Editar(id_libro) {
                 success: function (a, b, c) {
                 },
             });
-            setTimeout(function () {
-                location.reload(true);
-            }, 3000);
+
         } else if (
             /* Read more about handling dismissals below */
             result.dismiss === Swal.DismissReason.cancel
