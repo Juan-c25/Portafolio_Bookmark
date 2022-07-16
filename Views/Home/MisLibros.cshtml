@@ -14,27 +14,31 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />    
 </head>
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/dt/dt-1.10.22/datatables.min.css"/>
   <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.22/datatables.min.js"></script>
+
   <script src="~/js/FnMisLibros.js"></script>
+
       <hr />
-    <h2 class="text-center colortext" align="center"><img src="~/img/Book-Row-PNG-HD.png" class="libro1" />  Mis Libros <img src="~/img/Book-Row-PNG-HD.png" class="libro2" /> </h2>
+    <h2 class="text-center colortext" align="center"><img src="~/img/Book-Row-PNG-HD.png" class="libro1" />  Mis Libros <img  style="transform: scaleX(-1)" src="~/img/Book-Row-PNG-HD.png" class="libro2" /> </h2>
     <hr />
 
 <div>
  <table style="width:100%" class="display" id="tabla">
     <thead>
         <tr>
-            <th>titulo</th>
+            <th>Titulo</th>
             <th>Autor</th>
             <th>Categoria</th>
             <th>Estado</th>
-            <th>Estado</th>
+            <th>Portada</th>
             <th>Botones</th>
         </tr>
     </thead>
 </table>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css">
