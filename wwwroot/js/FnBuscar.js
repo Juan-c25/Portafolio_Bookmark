@@ -124,7 +124,22 @@ function displayError() {
 function fncGuardar(titulo, autor, publisher, categoria, boton, portada) {
 
     if ($(boton).parent().parent().find('select').val() == '0') {
-        alert('Se debe seleccionar un estado del libro');
+        Swal.fire({
+            toast: true,
+            icon: 'error',
+            title: 'General Title',
+            animation: false,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            },
+            animation: true,
+            title: 'Seleccione un estado'
+        });
         return;
     }
     var data = {
